@@ -1,0 +1,6 @@
+@AlmadenApi_HostAddress = http://localhost:5171
+
+GET {{AlmadenApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
