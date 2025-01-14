@@ -1,0 +1,102 @@
+
+:host {
+  display: block;
+  background-color: #50BFD7;
+  height: 100vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  margin: 0; 
+}
+
+.login-card {
+  background-color: #ffffff; 
+}
+
+.login-card {
+  max-width: 400px;
+  margin: auto;
+  background-color: #ffffff; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh; 
+  padding: 10px;
+  border-radius: 8px; 
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.2), 
+    0 6px 20px rgba(0, 0, 0, 0.19); 
+}
+
+
+
+.card-logo {
+  max-width: 100%;
+  height: auto; 
+  max-height: 100px; 
+  object-fit: contain;
+  margin-bottom: 15%;
+  margin-left: -5%;
+}
+
+
+.content h3 {
+  text-align: center; 
+  font-weight: normal; 
+  margin-bottom: 20px; 
+  color: #333; 
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+mat-icon {
+  color: #50BFD7; /* Cor do ícone */
+}
+
+.newsletter-checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #555; /* Cor do texto */
+}
+
+.login-button button {
+  width: 100%;
+  height: 48px;
+  border-radius: 4px;
+  background-color: #50BFD7; /* Fundo azul */
+  color: #fff; /* Texto branco */
+  border: none; /* Remove bordas */
+  cursor: pointer; /* Adiciona o cursor de pointer */
+  transition: background-color 0.3s ease; /* Efeito de transição */
+}
+
+button {
+  width: 100%;
+  height: 48px;
+  font-size: 16px;
+  border-radius: 4px;
+  background-color: #2196f3; /* Azul */
+  color: #fff;
+}
+
+.signin-link {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+.signin-link a {
+  color: #2196f3; /* Azul */
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.signin-link a:hover {
+  text-decoration: underline;
+}
