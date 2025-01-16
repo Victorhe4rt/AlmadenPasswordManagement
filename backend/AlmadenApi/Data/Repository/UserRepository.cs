@@ -19,7 +19,7 @@ namespace AlmadenApi.Data.Repository
         public async Task<User> AuthenticateAsync(AuthUserRequest request)
         {
             return await _context.Users
-            .FirstOrDefaultAsync(u => u.UserName == request.userName);  // Usando FirstOrDefaultAsync
+            .FirstOrDefaultAsync(u => u.UserName == request.userName&& u.Password == request.password);  
         }
 
 

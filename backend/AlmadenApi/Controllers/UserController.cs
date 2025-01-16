@@ -30,11 +30,24 @@ namespace AlmadenApi.Controllers
 
             if (usuario == null)
             {
-                return BadRequest("Username or Password Invalid");
+                 var failureResponse = new MessageHandlerApi<object>
+                {
+                    Success = false,
+                    Message = "Invalid username or password",
+                    Data = null  // Nenhum dado adicional necessário
+                };
+                return BadRequest(failureResponse);
             }
 
+            var successResponse = new MessageHandlerApi<object>
+            {
+                Success = true,
+                Message = "User logged in successfully",
+                Data = null  // Nenhum dado adicional necessário
+            };
+
          
-            return Ok("OK :)"); 
+            return Ok(successResponse); 
         }
 
 

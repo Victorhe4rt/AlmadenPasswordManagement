@@ -10,6 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserServiceService } from '../services/user-service.service';
 import { User } from '../interface/User';
 import { FormsModule } from '@angular/forms'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-component',
@@ -35,7 +36,8 @@ export class LoginComponentComponent {
 
   constructor(
     private userService: UserServiceService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private router: Router 
 
   ) {}
 
@@ -50,6 +52,7 @@ export class LoginComponentComponent {
         if (response.status === 200) {
           console.log('Success response:', response); 
           this.showSnackbar('User logged with success', 'success-snackbar');
+          this.router.navigate(['/home']); // Navega para a rota da sidebar
         } else {
           console.error('Unexpected status:', response.status);
           this.showSnackbar('Unexpected error occurred', 'error-snackbar');
