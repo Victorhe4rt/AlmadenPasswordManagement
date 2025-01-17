@@ -7,11 +7,18 @@ using AlmadenApi.Model;
 
 namespace AlmadenApi.Data.Repository
 {
-    public class LastPassCardRepository:RepositoryBase<LastPassCard>,ILastPassCardRepository
+    public class LastPassCardRepository : RepositoryBase<LastPassCard>, ILastPassCardRepository
     {
         public LastPassCardRepository(ApplicationDbContext context) : base(context)
         {
 
+        }
+        public IEnumerable<LastPassCard> GetByUserId(int userId)
+        {
+            return _context.LastPassCards
+       
+                .Where(card => card.Pk_UserId == userId)
+                .ToList();
         }
     }
 }

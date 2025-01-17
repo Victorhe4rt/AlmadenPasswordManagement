@@ -15,6 +15,34 @@ services:
     networks:
       - sql_network
 
+  api:
+    build:
+      context: ./backend/AlmadenApi 
+      dockerfile: Dockerfile
+    ports:
+      - "127.0.0.1:80:8080"
+    networks:
+      - sql_network
+    depends_on:
+      - sqlserver
+    environment:
+      - DATABASE_HOST=172.31.64.1,1433
+      - DATABASE_USER=sa
+      - DATABASE_PASSWORD=YourStrong!Passw0rd
+      - DATABASE_NAME=AlmadenDB
+    command: ["./wait-for-it.sh", "172.31.64.1:1433", "--", "dotnet", "AlmadenApi.dll"]
+
+  frontend:
+    build:
+      context: ./frontend/AlmadenFront
+      dockerfile: Dockerfile
+    ports:
+      - "5000:80"  # Exemplo, mapeando a porta 4200 para 80 do container
+    networks:
+      - sql_network
+    depends_on:
+      - api
+
 volumes:
   sql_data:
     driver: local

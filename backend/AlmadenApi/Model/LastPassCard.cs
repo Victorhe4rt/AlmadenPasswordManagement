@@ -17,7 +17,9 @@ namespace AlmadenApi.Model
         // Categorias  
         public int ?PK_FolderId { get; set; }
 
-        public Folder folder {get;set;}
+        public int ?Pk_UserId{get;set;}
+
+        public Folder ?folder {get;set;}
         public string ?UserName { get; set; }
         public string ?Password { get; set; }
         public string ? Notes { get; set; }
@@ -26,6 +28,16 @@ namespace AlmadenApi.Model
         public DateTime ?create_at { get; set; }
 
         public DateTime ? update_at { get; set; }
+
+        
+        public LastPassCard()
+        {
+            create_at = DateTime.Now;
+            update_at = DateTime.Now;
+
+        }
         
     }
+
+   
 }

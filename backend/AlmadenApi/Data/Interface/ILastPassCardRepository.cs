@@ -9,6 +9,7 @@ namespace AlmadenApi.Data.Interface
 {
     public interface ILastPassCardRepository:IRepositoryBase<LastPassCard>
     {
+        IEnumerable<LastPassCard> GetByUserId(int userId);
         
     }
 }

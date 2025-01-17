@@ -33,11 +33,11 @@ namespace AlmadenApi.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("create_at")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("create_at")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("update_at")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("update_at")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -64,6 +64,9 @@ namespace AlmadenApi.Migrations
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("Pk_UserId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Url")
                         .HasColumnType("nvarchar(max)");
 
@@ -73,7 +76,7 @@ namespace AlmadenApi.Migrations
                     b.Property<DateTime?>("create_at")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("folderId")
+                    b.Property<int?>("folderId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("update_at")
@@ -115,9 +118,7 @@ namespace AlmadenApi.Migrations
                 {
                     b.HasOne("AlmadenApi.Model.Folder", "folder")
                         .WithMany()
-                        .HasForeignKey("folderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("folderId");
 
                     b.Navigation("folder");
                 });

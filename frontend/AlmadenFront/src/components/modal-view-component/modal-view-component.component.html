@@ -1,0 +1,34 @@
+<h2 mat-dialog-title style="text-align: center; font-weight: bold;">View Password</h2>
+
+<mat-dialog-content>
+  <form>
+
+    <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 15px;">
+      <mat-label>Card Name</mat-label>
+      <input matInput [(ngModel)]="name" [ngModelOptions]="{standalone: true}" placeholder="Card Name" style="border-radius: 0;" readonly>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 15px;">
+      <mat-label>Website URL</mat-label>
+      <input matInput [(ngModel)]="url" [ngModelOptions]="{standalone: true}" placeholder="Website URL" style="border-radius: 0;" readonly>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 15px;">
+      <mat-label>Username</mat-label>
+      <input matInput [(ngModel)]="userName" [ngModelOptions]="{standalone: true}" placeholder="Username" style="border-radius: 0;" readonly>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 15px;">
+      <mat-label>Password</mat-label>
+      <input matInput [(ngModel)]="password" [ngModelOptions]="{standalone: true}" [type]="isPasswordVisible ? 'text' : 'password'" placeholder="Password" style="border-radius: 0;">
+      <button mat-icon-button type="button" (click)="togglePasswordVisibility()">
+        <mat-icon>{{ isPasswordVisible ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="closeDialog()">Cancel</button>
+  
+</mat-dialog-actions>

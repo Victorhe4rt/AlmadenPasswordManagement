@@ -1,0 +1,81 @@
+.sidenav-container {
+    height: 100vh;
+    display: flex;
+  }
+  
+  .sidenav {
+    width: 250px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Box shadow */
+    background-color: #ffffff; /* Fundo branco */
+    border-radius: 0; /* Remove o border-radius do container */
+  }
+  
+  mat-toolbar {
+    background-color: #ffffff;
+  }
+  
+  mat-nav-list a {
+    display: flex;
+    align-items: center;
+  }
+  
+  mat-icon {
+    margin-right: 16px; /* Espaço entre o ícone e o texto */
+  }
+  
+  .content {
+    padding: 16px;
+  }
+
+  /* Estilo para a toolbar */
+.toolbar {
+    display: flex;
+    align-items: center;
+    padding: 0 16px; /* Adiciona espaçamento nas laterais */
+  }
+  
+  /* Estilo para o título */
+  .app-title {
+    font-family: 'Roboto', sans-serif; /* Usa a fonte padrão do Angular Material */
+    font-size: 24px; /* Tamanho maior para destaque */
+    font-weight: 500; /* Peso moderado para o texto */
+    color: black; /* Cor cinza mais fosca */
+    margin-left: 16px; /* Espaçamento entre o botão e o título */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Adiciona sombra ao texto */
+  }
+  
+  /* Opcional: Adiciona responsividade */
+  @media (max-width: 600px) {
+    .app-title {
+      font-size: 20px; /* Reduz o tamanho em telas menores */
+    }
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px; /* Tamanho do ícone */
+    color: white; /* Cor do ícone */
+    cursor: pointer; /* Mostra que é interativo */
+  }
+  /* Opcional: Se o ícone for muito grande ou pequeno */
+.mat-icon {
+    font-size: 28px; /* Tamanho maior para o ícone */
+  }
+  
+  /* Estilo para a imagem do logo */
+.card-logo {
+    width: 200px; /* Tamanho igual ao tamanho de um ícone do Angular Material */
+    height: 300px; /* Mantém a proporção correta */
+    object-fit: contain; /* Garante que a imagem se ajuste bem */
+    margin-right: 8px; /* Espaçamento entre a imagem e o texto */
+  }
+  
+  /* Estilo para o card-header */
+  .card-header {
+    display: flex;
+    align-items: center; /* Alinha verticalmente */
+    justify-content: center; /* Alinha horizontalmente */
+  }
+  
