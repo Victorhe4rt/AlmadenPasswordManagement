@@ -15,9 +15,9 @@ Caso haja algum problema ao rodar o projeto utilizando o Docker Compose, siga os
 
 **Dependências **
 
--NODE.js 
--Netcore 
--Instalar angular CLI npm install @angular/cli`.
+NODE.js 
+Netcore 
+Instalar angular CLI npm install @angular/cli`.
 
 1)Acessar o program.cs do projeto do back-end e comentar a as variavies do dockerfile para pegar direto em memória
 ![{BACF5065-701A-4F6F-915E-603EDB8FDC2A}](https://github.com/user-attachments/assets/ec8f9f4b-3920-453c-a5d1-2208a0fe362d)
