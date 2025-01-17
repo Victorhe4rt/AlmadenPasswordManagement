@@ -5,33 +5,28 @@ using AlmadenApi.Model;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowAnyOrigin", policy =>
-    {
-        policy.SetIsOriginAllowed(origin => true)  
-              .AllowAnyHeader()
-              .AllowAnyMethod();
-    });
-});
-
 
 
 var enviromentDocker = new EnviromentDocker();
 enviromentDocker.showAllEnvariment();
 
 
-string connectionString = $"Server={enviromentDocker.DATABASE_HOST};" +  
-                          $"Database={enviromentDocker.DATABASE_NAME};" +
-                          $"User Id={enviromentDocker.DATABASE_USER};" +
-                          $"Password={enviromentDocker.DATABASE_PASSWORD};" +
-                          "TrustServerCertificate=True;";  
+//Docker
 
-// string connectionString = $"Server=172.31.64.1,1433;" +  
-//                           $"Database=AlmadenDB" +
-//                           $"User Id=sa;" +
-//                           $"Password=YourStrong!Passw0rd;" +
-//                           "TrustServerCertificate=True;";  
+// string connectionString = $"Server={enviromentDocker.DATABASE_HOST};" +  
+//                           $"Database={enviromentDocker.DATABASE_NAME};" +
+//                           $"User Id={enviromentDocker.DATABASE_USER};" +
+//                           $"Password={enviromentDocker.DATABASE_PASSWORD};" +
+//                           "TrustServerCertificate=True;"; 
+
+//STG ENV -- UNCOMMENT THESE LINES BELOW 
+
+
+string connectionString = $"Server=172.31.64.1,1433;" +  
+                          $"Database=AlmadenDB;" +
+                          $"User Id=sa;" +
+                          $"Password=YourStrong!Passw0rd;" +
+                          "TrustServerCertificate=True;";  
                        
 
 Console.WriteLine("\n \nConnection String: " + connectionString);
@@ -56,9 +51,14 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    dbContext.Database.Migrate(); 
+    // dbContext.Database.Migrate(); 
 }
-
+app.UseCors(builder =>
+{
+    builder.AllowAnyOrigin();
+    builder.AllowAnyMethod();
+    builder.AllowAnyHeader();
+});
 app.MapControllers();
 app.UseSwagger();
 app.UseSwaggerUI();
