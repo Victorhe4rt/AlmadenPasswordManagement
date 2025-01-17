@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AlmadenApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1c8c72d2374ace517f6c525256cc45516bad135e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b0c489670063acf88cab02db86bdf585a3bfe8b5")]
 [assembly: System.Reflection.AssemblyProductAttribute("AlmadenApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AlmadenApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

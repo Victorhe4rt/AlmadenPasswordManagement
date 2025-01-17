@@ -25,15 +25,15 @@ namespace AlmadenApi.Model
         public string ? Notes { get; set; }
 
         
-        public string ?create_at { get; set; }
+        public DateTime ?create_at { get; set; }
 
-        public string ? update_at { get; set; }
+        public DateTime ? update_at { get; set; }
 
         
         public LastPassCard()
         {
-            create_at = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            update_at = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            create_at = DateTime.Now;
+            update_at = DateTime.Now;
 
         }
         

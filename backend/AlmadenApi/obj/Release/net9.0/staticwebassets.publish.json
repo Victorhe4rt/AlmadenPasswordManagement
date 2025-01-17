@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "yg3rM64ph1rd+mzeMcIcwQKCz4A1s33tN5SV2BmTPgM=",
+  "Source": "AlmadenApi",
+  "BasePath": "_content/AlmadenApi",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

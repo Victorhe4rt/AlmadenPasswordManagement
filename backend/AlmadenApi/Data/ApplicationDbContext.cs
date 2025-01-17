@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AlmadenApi.Data
 {
-    public class ApplicationDbContext:DbContext
+    public class ApplicationDbContext : DbContext
     {
         private readonly IConfiguration _configuration;
         public DbSet<LastPassCard> LastPassCards { get; set; }
@@ -22,11 +22,15 @@ namespace AlmadenApi.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
+            var connectionString = _configuration.GetConnectionString("DefaultConnection");
+
+            // Imprime a connection string
+            Console.WriteLine($"Connection String: {connectionString}");
+
+            optionsBuilder.UseSqlServer(connectionString);
         }
 
-        
 
-        
+
     }
 }

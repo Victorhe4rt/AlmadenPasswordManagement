@@ -70,6 +70,8 @@ export class LoginComponentComponent {
     
   }
 
+  
+
   private showSnackbar(message: string, panelClass: string): void {
     this.snackBar.open(message, 'Close', {
       duration: 3000,

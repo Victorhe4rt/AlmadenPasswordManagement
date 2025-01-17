@@ -15,9 +15,9 @@ namespace AlmadenApi.Controllers
         private readonly ILastPassCardRepository _lastPassCardRepository;
 
 
-        public LastPassCardController(ILastPassCardRepository userRepository)
+        public LastPassCardController(ILastPassCardRepository lastPassCardRepository)
         {
-            _lastPassCardRepository = userRepository;
+            _lastPassCardRepository = lastPassCardRepository;
         }
 
         // 1. GET: api/LastPassCard
@@ -53,8 +53,26 @@ namespace AlmadenApi.Controllers
                 return StatusCode(500, "Internal server error: " + ex.Message);
             }
         }
+        // 3. GET: api/LastPassCard/user/{userId}
+        [HttpGet("user/{userId}")]
+        public IActionResult GetByUserId(int userId)
+        {
+            try
+            {
+                var lastPassCards = _lastPassCardRepository.GetByUserId(userId);
+                if (!lastPassCards.Any())
+                {
+                    return NotFound("No LastPassCards found for this user.");
+                }
+                return Ok(lastPassCards);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Internal server error: " + ex.Message);
+            }
+        }
 
-        // 3. POST: api/LastPassCard
+        // 4. POST: api/LastPassCard
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] LastPassCard LastPassCard)
         {
@@ -74,33 +92,41 @@ namespace AlmadenApi.Controllers
             }
         }
 
-        // 4. PUT: api/LastPassCard/{id}
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, [FromBody] LastPassCard LastPassCard)
+        // 5. PUT: api/LastPassCard/{id}
+    [HttpPut("{id}")]
+public async Task<IActionResult> Update(int id, [FromBody] LastPassCard updatedCard)
+{
+    try
+    {
+        if (updatedCard == null)
         {
-            try
-            {
-                if (LastPassCard == null || id != LastPassCard.Id)
-                {
-                    return BadRequest("LastPassCard object is invalid.");
-                }
-
-                var existingUser = await _lastPassCardRepository.GetByIdAsync(id);
-                if (existingUser == null)
-                {
-                    return NotFound("LastPassCard not found.");
-                }
-
-                await _lastPassCardRepository.UpdateAsync(LastPassCard);
-                return NoContent();
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, "Internal server error: " + ex.Message);
-            }
+            return BadRequest("LastPassCard object is invalid.");
         }
 
-        // 5. DELETE: api/LastPassCard/{id}
+        var existingCard = await _lastPassCardRepository.GetByIdAsync(id);
+        if (existingCard == null)
+        {
+            return NotFound("LastPassCard not found.");
+        }
+
+        existingCard.Url = updatedCard.Url;
+        existingCard.Name = updatedCard.Name;
+        existingCard.Pk_UserId = updatedCard.Pk_UserId;
+        existingCard.UserName = updatedCard.UserName;
+        existingCard.Password = updatedCard.Password;
+
+        await _lastPassCardRepository.UpdateAsync(existingCard);
+
+        return Ok(existingCard);
+    }
+    catch (Exception ex)
+    {
+        return StatusCode(500, "Internal server error: " + ex.Message);
+    }
+}
+
+
+        // 6. DELETE: api/LastPassCard/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {

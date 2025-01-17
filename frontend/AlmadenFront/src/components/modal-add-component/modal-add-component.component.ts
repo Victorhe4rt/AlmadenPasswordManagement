@@ -8,6 +8,11 @@ import { MatDialogModule } from '@angular/material/dialog'
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { LastPassCardServiceService } from '../services/last-pass-card-service.service';
+import { LastPassCard } from '../interface/LastPassCard';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import {Router, NavigationEnd,ActivatedRoute} from '@angular/router';
+
 
 import { FormsModule } from '@angular/forms'
 
@@ -32,31 +37,63 @@ import { FormsModule } from '@angular/forms'
  
 })
 export class ModalAddComponentComponent {
+  id: number = 0; 
+
   url: string = '';
+ 
   name: string = '';
-  pk_UserId: number = 1; 
+  pk_UserId: number = 0; 
   userName: string = '';
   password: string = '';
-  // notes: string = '';
+  currentComponent = ''; 
+ 
 
 
-  constructor(public dialogRef: MatDialogRef<ModalAddComponentComponent>) {}
+  constructor(public dialogRef: MatDialogRef<ModalAddComponentComponent> ,
+    private lastPassCardService: LastPassCardServiceService,
+    private snackBar: MatSnackBar,
+    private router: Router, 
+    private activatedRoute: ActivatedRoute
+  
+  ) {}
 
   closeDialog(): void {
     this.dialogRef.close();
   }
 
   savePassword(): void {
-    const newPassword = {
+
+    const newPassword: LastPassCard = {
+      id: this.id,
       url: this.url,
       name: this.name,
-      pk_UserId: this.pk_UserId,
+      pk_UserId: Number(sessionStorage.getItem('username')),
       userName: this.userName,
       password: this.password,
-      // notes: this.notes
     };
-    console.log('Password saved', newPassword);
-    this.dialogRef.close(newPassword);
+    
+    this.lastPassCardService.createLastPassCard(newPassword).subscribe({
+      next: (response) => {
+        console.log('Password saved successfully:', response);
+        this.showSnackbar('Card added with success', 'success-snackbar');
+        
+        this.dialogRef.close(newPassword);
+      },
+      error: (err) => {
+        console.error('Error saving password:', err);
+        this.showSnackbar('Error saving password', 'error-snackbar'); 
+      }
+    });
   }
+  
+
+  private showSnackbar(message: string, panelClass: string): void {
+    this.snackBar.open(message, 'Close', {
+      duration: 3000,
+      panelClass: [panelClass]
+    });
+  }
+
+
 
 }

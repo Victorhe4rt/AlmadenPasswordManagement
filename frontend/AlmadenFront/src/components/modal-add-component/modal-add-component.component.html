@@ -2,20 +2,26 @@
 
 <mat-dialog-content>
   <form>
+
     <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 15px;">
-      <input matInput [(ngModel)]="url" [ngModelOptions]="{standalone: true}"placeholder="Website URL" style="border-radius: 0;">
+      <mat-label>Card Name</mat-label>
+      <input matInput [(ngModel)]="name" [ngModelOptions]="{standalone: true}" placeholder="Name" style="border-radius: 0;">
     </mat-form-field>
 
     <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 15px;">
-      <input matInput [(ngModel)]="name" [ngModelOptions]="{standalone: true}"placeholder="Name" style="border-radius: 0;">
+      <mat-label>Website URL</mat-label>
+      <input matInput [(ngModel)]="url" [ngModelOptions]="{standalone: true}" placeholder="http//url.com//" style="border-radius: 0;">
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 15px;">
+      <mat-label>Username</mat-label>
+      <input matInput [(ngModel)]="userName" [ngModelOptions]="{standalone: true}" placeholder="Username" style="border-radius: 0;">
     </mat-form-field>
 
     <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 15px;">
-      <input matInput [(ngModel)]="userName"[ngModelOptions]="{standalone: true}" placeholder="Username" style="border-radius: 0;">
-    </mat-form-field>
-
-    <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 15px;">
-      <input matInput [(ngModel)]="password" [ngModelOptions]="{standalone: true}"placeholder="Password" type="password" style="border-radius: 0;">
+      <mat-label>Password</mat-label>
+      <input matInput [(ngModel)]="password" [ngModelOptions]="{standalone: true}" placeholder="Password" type="password" style="border-radius: 0;">
     </mat-form-field>
   </form>
 </mat-dialog-content>
