@@ -1,5 +1,5 @@
 export const env = {
     production: true,
-    AlmadenApiUrl: 'http://localhost:5171'
+    AlmadenApiUrl: 'http://127.0.0.1:80'
    
   };

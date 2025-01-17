@@ -1,25 +1,6 @@
 version: '3.8'
 
 services:
-  api:
-    build:
-      context: ./backend/AlmadenApi  # Caminho correto para o diretório onde o Dockerfile está
-      dockerfile: Dockerfile
-    ports:
-      - "127.0.0.1:80:8080"
-    networks:
-      - sql_network
-    depends_on:
-      - sqlserver
-    environment:
-      - DATABASE_HOST=sqlserver
-      - DATABASE_PORT=1433
-      - DATABASE_USER=sa
-      - DATABASE_PASSWORD=YourStrong!Passw0rd
-      - DATABASE_NAME=AlmadenDB
-      - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=AlmadenDB;User Id=sa;Password=YourStrong!Passw0rd;TrustServerCertificate=True; 
-    command: ["./wait-for-it.sh", "sqlserver:1433", "--", "dotnet", "AlmadenApi.dll"]
-
   sqlserver:
     image: mcr.microsoft.com/mssql/server:2022-latest
     container_name: sqlserver-container
@@ -33,6 +14,34 @@ services:
       - sql_data:/var/opt/mssql
     networks:
       - sql_network
+
+  api:
+    build:
+      context: ./backend/AlmadenApi 
+      dockerfile: Dockerfile
+    ports:
+      - "127.0.0.1:80:8080"
+    networks:
+      - sql_network
+    depends_on:
+      - sqlserver
+    environment:
+      - DATABASE_HOST=172.31.64.1,1433
+      - DATABASE_USER=sa
+      - DATABASE_PASSWORD=YourStrong!Passw0rd
+      - DATABASE_NAME=AlmadenDB
+    command: ["./wait-for-it.sh", "172.31.64.1:1433", "--", "dotnet", "AlmadenApi.dll"]
+
+  frontend:
+    build:
+      context: ./frontend/AlmadenFront
+      dockerfile: Dockerfile
+    ports:
+      - "5000:80"  # Exemplo, mapeando a porta 4200 para 80 do container
+    networks:
+      - sql_network
+    depends_on:
+      - api
 
 volumes:
   sql_data:
