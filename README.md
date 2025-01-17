@@ -22,6 +22,8 @@ Tela de login
 
 Tela home 
 
+Todos os metodos contidos nos cards estão funcionais comunicando com a API
+
 ![{00AA68B7-2A87-454C-AE71-8E68D81C8C92}](https://github.com/user-attachments/assets/b2b9575d-2ab3-4eb8-8254-c348c4d34474)
 
 
