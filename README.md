@@ -22,7 +22,8 @@ Tela de login
 
 Tela home 
 
-![{3CC4D6B4-EF45-4B13-AF31-F77626BA2A08}](https://github.com/user-attachments/assets/b547ce44-6b15-4bfe-b41d-9b7ee2ab2412)
+![{00AA68B7-2A87-454C-AE71-8E68D81C8C92}](https://github.com/user-attachments/assets/b2b9575d-2ab3-4eb8-8254-c348c4d34474)
+
 
 Card visualização de senha 
 
