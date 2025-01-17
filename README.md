@@ -14,6 +14,23 @@ Front end : Angular , material ui ,nginx
 
 Banco de dados : Sql server 
 
+## Screenshots do projeto
+
+Tela de login
+
+![{A199FE60-3AAF-4030-AA64-14A119AE8288}](https://github.com/user-attachments/assets/fd68ed68-2165-44ba-8194-9f95fc819374)
+
+Tela home 
+
+![{3CC4D6B4-EF45-4B13-AF31-F77626BA2A08}](https://github.com/user-attachments/assets/b547ce44-6b15-4bfe-b41d-9b7ee2ab2412)
+
+Card visualização de senha 
+
+![{FB7E6097-4026-4DFA-9089-3E81072C9C60}](https://github.com/user-attachments/assets/1b04a97d-166b-483f-acbb-840017c15db3)
+
+
+
+
 ## Ponto de Atenção
 
 Caso haja algum problema ao rodar o projeto utilizando o Docker Compose, siga os passos abaixo para rodar manualmente os serviços:
