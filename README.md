@@ -30,7 +30,7 @@ Instalar angular CLI npm install @angular/cli`.
 dotnet run
 ```
 
-3)No diretório onde está o projeto front-end -> program.cs deve ser rodado o comando 
+3)No diretório onde está o projeto front-end -> angular.json deve ser rodado o comando 
 ```bash
 ng serve
 ```
