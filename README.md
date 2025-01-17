@@ -5,8 +5,13 @@
 Este repositório contém o projeto **AlmadenPasswordManagement**, que pode ser executado utilizando Docker Compose ou manualmente rodando cada projeto que foi separado em back end / Front ent
 
 Tecnologias utilizadas 
+
+Padrão de projeto : Repository pattern com Generics
+
 Back - end : C#,netcore,entity framework
+
 Front end : Angular , material ui ,nginx 
+
 Banco de dados : Sql server 
 
 ## Ponto de Atenção
