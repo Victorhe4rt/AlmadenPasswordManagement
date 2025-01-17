@@ -8,7 +8,7 @@ Tecnologias utilizadas
 
 Padrão de projeto : Repository pattern com Generics
 
-Back - end : C#,netcore,entity framework
+Back - end : C#,netcore,entity framework ,Swagger
 
 Front end : Angular , material ui ,nginx 
 
@@ -24,6 +24,10 @@ Tela home
 
 Todos os metodos contidos nos cards estão funcionais comunicando com a API
 
+Swagger
+![{90B50AFC-3F12-47E3-9959-318B200D02F4}](https://github.com/user-attachments/assets/e1596f7e-2670-4954-84e4-e21ece42bdfd)
+
+Cards
 ![{00AA68B7-2A87-454C-AE71-8E68D81C8C92}](https://github.com/user-attachments/assets/b2b9575d-2ab3-4eb8-8254-c348c4d34474)
 
 
