@@ -34,7 +34,7 @@ namespace AlmadenApi.Controllers
                 {
                     Success = false,
                     Message = "Invalid username or password",
-                    Data = null  // Nenhum dado adicional necessário
+                    Data = null   
                 };
                 return BadRequest(failureResponse);
             }
@@ -43,7 +43,7 @@ namespace AlmadenApi.Controllers
             {
                 Success = true,
                 Message = "User logged in successfully",
-                Data = null  // Nenhum dado adicional necessário
+                Data = usuario.Id 
             };
 
          

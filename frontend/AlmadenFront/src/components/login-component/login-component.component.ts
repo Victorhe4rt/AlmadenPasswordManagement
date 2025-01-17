@@ -50,9 +50,12 @@ export class LoginComponentComponent {
     this.userService.authenticate(user).subscribe({
       next: (response) => {
         if (response.status === 200) {
-          console.log('Success response:', response); 
+          console.log('Userid', response.body.data); 
+         
+          sessionStorage.setItem('username', response.body.data); 
+
           this.showSnackbar('User logged with success', 'success-snackbar');
-          this.router.navigate(['/home']); // Navega para a rota da sidebar
+          this.router.navigate(['/home']); 
         } else {
           console.error('Unexpected status:', response.status);
           this.showSnackbar('Unexpected error occurred', 'error-snackbar');

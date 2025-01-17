@@ -1,0 +1,26 @@
+<h2 mat-dialog-title style="text-align: center; font-weight: bold;">New Password</h2>
+
+<mat-dialog-content>
+  <form>
+    <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 15px;">
+      <input matInput [(ngModel)]="url" [ngModelOptions]="{standalone: true}"placeholder="Website URL" style="border-radius: 0;">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 15px;">
+      <input matInput [(ngModel)]="name" [ngModelOptions]="{standalone: true}"placeholder="Name" style="border-radius: 0;">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 15px;">
+      <input matInput [(ngModel)]="userName"[ngModelOptions]="{standalone: true}" placeholder="Username" style="border-radius: 0;">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 15px;">
+      <input matInput [(ngModel)]="password" [ngModelOptions]="{standalone: true}"placeholder="Password" type="password" style="border-radius: 0;">
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="closeDialog()">Cancel</button>
+  <button mat-button (click)="savePassword()">Save</button>
+</mat-dialog-actions>
